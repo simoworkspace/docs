@@ -1,33 +1,111 @@
----
-title: 'Introduction'
-description: 'Example section for showcasing API endpoints'
----
-
-<Note>
-  If you're not looking to build API reference documentation, you can delete
-  this section by removing the api-reference folder.
-</Note>
-
-## Welcome
-
-There are two ways to build API documentation: [OpenAPI](https://mintlify.com/docs/api-playground/openapi/setup) and [MDX components](https://mintlify.com/docs/api-playground/mdx/configuration). For the starter kit, we are using the following OpenAPI specification.
-
-<Card
-  title="Plant Store Endpoints"
-  icon="leaf"
-  href="https://github.com/mintlify/starter/blob/main/api-reference/openapi.json"
->
-  View the OpenAPI specification file
-</Card>
+The Simo API is an HTTP/REST-based API for various services, typically used on the front end with some wrapper library.
 
 ## Authentication
 
-All API endpoints are authenticated using Bearer tokens and picked up from the specification file.
+Authentication can be done in two ways:
+
+1. Using Json Web Token (less common method, usually used on the front end).
+2. Using an api-key generated on the [Simo botlist](https://bombadeagua.life) website.
+
+All authentications must be placed in the `Authorization` header in an HTTP request.
+
+### Example
+
+- Using api-key
 
 ```json
-"security": [
-  {
-    "bearerAuth": []
-  }
-]
+{
+    "Authorization": "0jija6272bfda-e4jb2bj6bje5c-2icdeg51ee0jb"
+}
+```
+
+- Using Json Web Token
+
+```json
+
+```json
+{
+    "Authorization": "eyJhbGciOiJIUzI1NiJ9.UG9yIHF1ZSB2b2PDqiB0ZW50b3UgZGVjb2RpZmljYXIgaXNzbz8.cXaza7vgMrvJR0MXihfaSh7eJUXzsFdmK-b4c_8dEZg"
+}
+```
+
+## Types
+
+How are the types documented? The types follow the TypeScript standard. Some fields may contain the value `null`, and some fields may be optional.
+
+### Examples of Nullable and Optional Fields
+
+| NAME          | TYPE     |
+| ------------- | -------- |
+| nullable      | ?string  |
+| optional?     | string   |
+| normal_field  | string   |
+
+## Dates
+
+Whenever it is necessary to save the creation/update date of something, ISO8601 dates are used.
+
+## Errors
+
+Errors may or may not have the `errors` property. Errors are designed to be human-readable. With almost every new update, a new error is added (you can view them in [errors](/api/utils/errors.json)). Examples of errors:
+
+Normal error:
+
+```json
+{
+    "message": "Unknown user",
+    "code": 5001
+}
+```
+
+Errors with `errors`:
+
+```json
+{
+    "errors": [
+        "vote_message must be a `string` type, but the final value was: `2`."
+    ]
+}
+```
+
+## Libraries
+
+You can interact with the API in different ways instead of using the raw API. Using API wrappers makes it easier to interact with the actual API.
+
+### `@simo.js/rest`
+
+With `@simo.js/rest`, you can create and interact with the Simo API in a better way.
+
+Getting the current user:
+
+```js
+const { REST, Routes } = require("@simo.js/rest");
+
+const rest = new REST({ auth: "API-AUTH" });
+
+const userData = await rest.get(Routes.getUser("@me"));
+
+console.log("Username:", userData.username);
+```
+
+### `@simo.js/simo.js`
+
+A powerful library that allows you to interact with any route and method of the Simo API.
+
+Creating a bot:
+
+```js
+const { API } = require("@simo.js/simo.js");
+
+const client = new API({
+    auth: "API-AUTH",
+});
+
+await client.bots.create({
+    inviteURL: "bot-invite",
+    shortDescription: "Some short description goes here",
+    longDescription: "Some looooong description goes here...",
+    prefixes: ["!"],
+    tags: ["economy"],
+});
 ```
