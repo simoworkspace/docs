@@ -1,0 +1,43 @@
+---
+title: "Check API Status"
+api: "GET https://simo-botlist.vercel.app/api/status"
+description: "This method is utilized to retrieve the current status of the API."
+---
+
+### Response
+
+<ResponseField name="API Status Structure" type="object">
+  <Expandable>
+    <ResponseField name="total_mem" type="number">
+      Total API memory
+    </ResponseField>
+    <ResponseField name="free_mem" type="number">
+      Free API memory
+    </ResponseField>
+    <ResponseField name="users" type="number">
+      Total logged-in users
+    </ResponseField>
+    <ResponseField name="bots" type="number">
+      Total added bots
+    </ResponseField>
+    <ResponseField name="uptime" type="number">
+      API uptime
+    </ResponseField>
+    <ResponseField name="request_count" type="number">
+      Total number of requests since startup
+    </ResponseField>
+  </Expandable>    
+</ResponseField>
+
+<ResponseExample>
+```json Response
+{
+    "total_mem": 8183.109375,
+    "free_mem": 2253.48046875,
+    "users": 7,
+    "bots": 9,
+    "uptime": 5591,
+    "request_count": 4
+}
+```
+</ResponseExample>
