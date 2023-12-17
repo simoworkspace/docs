@@ -1,0 +1,47 @@
+---
+title: "Get notifications"
+api: "GET https://simo-botlist.vercel.app/api/users/notifications"
+description: "Return all notifications from the user that matches the JWT or api-key."
+---
+
+<ParamField header="Authorization" type="string" placeholder="API KEY" required>
+  The JWT of your account. You can get this in website cookies
+</ParamField>
+
+### Response
+
+<ResponseField name="notifications" type="object">
+    The user notifications
+    <Expandable>
+         <ResponseField name="content" type="string">
+                    The content of the notification
+        </ResponseField>
+        <ResponseField name="sent_at" type="string">
+                    An ISO string representing when the notification was created
+        </ResponseField>
+        <ResponseField name="type" type="number">
+                    The type of the notification
+        </ResponseField>
+        <ResponseField name="url" type="string" optional="true">
+                    The hyperlink of the notification (Available only with Comment type)
+        </ResponseField>
+    </Expandable>
+</ResponseField>
+
+<ResponseExample>
+```json Response
+{
+    "1": {
+        "content": "**meunreal** Replicou seu comentário no bot **Compiler**\nvai se fuder",
+        "type": 3,
+        "url": "https://cdn.discordapp.com/avatars/963124227911860264/1f42e6dc5631724994ee7ea819371036.png",
+        "sent_at": "2023-11-12T14:45:54.814Z"
+    },
+    "2": {
+        "content": "😐",
+        "sent_at": "2023-11-23T20:01:10.564Z",
+        "type": 2,
+    }
+}
+```
+</ResponseExample>
