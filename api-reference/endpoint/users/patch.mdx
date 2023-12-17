@@ -1,18 +1,28 @@
 ---
-title: "Get user"
-api: "GET https://simo-botlist.vercel.app/api/users/{userID}"
-description: "Search for a user in the database."
+title: "Edit user"
+api: "PATCH https://simo-botlist.vercel.app/api/users"
+description: "Update the user object that matches the JWT or api-key."
 ---
 
-<ParamField type="string" path="userID" required>
-  The user iD
+<ParamField header="Authorization" type="string" placeholder="API KEY" required>
+  The JWT of your account. You can get this in website cookies
+</ParamField>
+<ParamField path="bio" type="string" maxLength="200">
+    The user biography (1-200 characters)
+</ParamField>
+<ParamField path="notifications_viewed" type="boolean">
+    Indicates whether the user has viewed notifications
+</ParamField>
+<ParamField path="banner_url" type="string">
+    The URL of the user's banner
 </ParamField>
 
-- Tip: this route `/api/users/@me` takes data from the api key or JWT
+- The user ID will be taken from the JWT or api key used
 
 ### Response
 
 <ResponseField name="User" type="object">
+    Returns the updated user object
     <Expandable>
         <ResponseField name="_id" type="string">
             The user id
