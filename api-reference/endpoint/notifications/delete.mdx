@@ -1,0 +1,23 @@
+---
+title: "Delete notification"
+api: "DELETE https://simo-botlist.vercel.app/api/users/notifications/{notificationID}"
+description: "Delete a user notification that matches the JWT or api-key."
+---
+
+<ParamField header="Authorization" type="string" placeholder="API KEY" required>
+  The JWT of your account. You can get this in website cookies
+</ParamField>
+<ParamField path="notificationID" type="string" required>
+  The notification ID
+</ParamField>
+
+### Response
+
+<ResponseField name="true | false" type="boolean">
+</ResponseField>
+
+<ResponseExample>
+```json Response
+true
+```
+</ResponseExample>
