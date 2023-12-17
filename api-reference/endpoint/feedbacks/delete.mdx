@@ -1,0 +1,34 @@
+---
+title: "Delete feedback"
+api: "DELETE https://simo-botlist.vercel.app/api/bots/{bot_id}/feedbacks"
+description: "This method is used to delete your feedback from a bot."
+---
+
+<ParamField header="Authorization" type="string" placeholder="API KEY" required>
+  The api key of a bot that you own. You can find in [dashboard](https://bombadeagua.life/dashboard/) after selecting a bot.
+</ParamField>
+<ParamField path="bot_id" type="string" required>
+  The bot id
+</ParamField>
+
+- The user ID will be taken from the JWT or api key used
+
+### Response
+
+<ResponseField name="Bot Structure" type="object">
+   <ResponseField name="message" type="string">
+      The message of deleted status
+    </ResponseField>
+    <ResponseField name="code" type="number">
+      The code of response
+    </ResponseField>
+</ResponseField>
+
+<ResponseExample>
+```json Response
+{
+    "message": "Success",
+    "code": 2050
+}
+```
+</ResponseExample>
