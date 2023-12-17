@@ -1,7 +1,7 @@
 ---
-title: "Edit bot"
-api: "PATCH https://simo-botlist.vercel.app/api/bots/{bot_id}"
-description: "This method is used to edit a bot."
+title: "Create bot"
+api: "POST https://simo-botlist.vercel.app/api/bots/{bot_id}"
+description: "This method is used to add a bot to the database."
 ---
 
 <ParamField header="Authorization" type="string" placeholder="API KEY" required>
@@ -38,7 +38,7 @@ description: "This method is used to edit a bot."
 ### Response
 
 <ResponseField name="Bot" type="object">
-    Returns the updated bot object
+    Returns the created bot object
   <Expandable>
     <ResponseField name="id" type="string">
       Bot id
