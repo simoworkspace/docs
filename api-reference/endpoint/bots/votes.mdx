@@ -1,0 +1,76 @@
+---
+title: "Get bot votes"
+api: "GET https://simo-botlist.vercel.app/api/bots/{botID}/votes"
+description: "This method is used to get all votes from a bot."
+---
+
+<ParamField header="Authorization" type="string" placeholder="API KEY" required>
+  The api key of a bot that you own. You can find in [dashboard](https://bombadeagua.life/dashboard/) after selecting a bot.
+</ParamField>
+<ParamField type="string" path="botID" required>
+  The bot id
+</ParamField>
+
+### Response
+
+<ResponseField name="votes" type="object">
+        The current bot votes
+    <Expandable>
+    <ResponseField name="user_id" type="string">
+        The user id
+    </ResponseField>
+    <ResponseField name="last_vote" type="string">
+        User last vote
+    </ResponseField>
+     <ResponseField name="votes" type="number">
+        User votes
+    </ResponseField>
+    </Expandable> 
+</ResponseField>
+
+<ResponseExample>
+```json Response
+[
+  {
+    "user_id": "955095844275781693",
+    "last_vote": "2023-12-17T14:11:39.372Z",
+    "votes": 3
+  },
+  {
+    "user_id": "893615754040197201",
+    "last_vote": "2023-12-13T15:11:16.121Z",
+    "votes": 1
+  },
+  {
+    "user_id": "963124227911860264",
+    "last_vote": "2023-12-16T23:50:32.064Z",
+    "votes": 2
+  },
+  {
+    "user_id": "1046844921530818630",
+    "last_vote": "2023-12-17T14:15:06.784Z",
+    "votes": 2
+  },
+  {
+    "user_id": "739957963414044683",
+    "last_vote": "2023-12-16T23:59:07.720Z",
+    "votes": 1
+  },
+  {
+    "user_id": "1168857357078495232",
+    "last_vote": "2023-12-17T14:19:02.654Z",
+    "votes": 1
+  },
+  {
+    "user_id": "485801281621852175",
+    "last_vote": "2023-12-17T14:34:23.876Z",
+    "votes": 1
+  },
+  {
+    "user_id": "1108083814875537468",
+    "last_vote": "2023-12-17T14:35:10.089Z",
+    "votes": 1
+  }
+]
+```
+</ResponseExample>
