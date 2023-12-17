@@ -99,7 +99,7 @@
           "group": "Status",
           "icon": "signal",
           "pages": [
-            "api-reference/endpoint/status"
+            "api-reference/endpoint/status/api"
           ]
         },
         {
