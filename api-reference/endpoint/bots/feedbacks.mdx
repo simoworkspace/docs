@@ -1,0 +1,120 @@
+---
+title: "Get bot feedback"
+api: "GET https://simo-botlist.vercel.app/api/bots/{botID}/feedbacks"
+description: "This method is used to get all feedback already made to a bot."
+---
+
+<ParamField header="Authorization" type="string" placeholder="API KEY" required>
+  The api key of a bot that you own. You can find in [dashboard](https://bombadeagua.life/dashboard/) after selecting a bot.
+</ParamField>
+<ParamField type="string" path="botID" required>
+  The bot id
+</ParamField>
+
+### Response
+
+<ResponseField name="Feedback Structure" type="object">
+    The current bot feedbacks
+    <Expandable>
+        <ResponseField name="stars" type="number">
+            The feedback stars
+        </ResponseField>
+        <ResponseField name="content" type="string">
+            The feedback content
+        </ResponseField>
+        <ResponseField name="target_bot_id" type="string">
+            The feedback target bot id
+        </ResponseField>
+        <ResponseField name="edited" type="boolean">
+            Indicates whether the feedback has been edited
+        </ResponseField>
+        <ResponseField name="reply_message" type="object">
+            Information about the reply message
+            <Expandable>
+                <ResponseField name="content" type="string">
+                    The content of the reply message
+                </ResponseField>
+                <ResponseField name="posted_at" type="string">
+                    The timestamp when the reply message was posted
+                </ResponseField>
+            </Expandable>
+        </ResponseField>
+        <ResponseField name="author" type="object">
+            Information about the author of the feedback
+            <Expandable>
+                <ResponseField name="username" type="string">
+                    The username of the author
+                </ResponseField>
+                <ResponseField name="avatar" type="string">
+                    The avatar of the author
+                </ResponseField>
+                <ResponseField name="id" type="string">
+                    The unique identifier of the author
+                </ResponseField>
+            </Expandable>
+        </ResponseField>
+        <ResponseField name="posted_at" type="string">
+            The timestamp when the feedback was originally posted
+        </ResponseField>
+    </Expandable>
+</ResponseField>
+
+
+<ResponseExample>
+```json Response
+[
+  {
+    "stars": 5,
+    "content": "bot legal, sem eu, eleé eu",
+    "target_bot_id": "1064594303181131928",
+    "edited": true,
+    "reply_message": {
+      "content": "concordo",
+      "posted_at": "2023-12-17T19:36:14.911Z"
+    },
+    "author": {
+      "username": "spyei",
+      "avatar": "fe5545ff422e61b1a37326ed5a9bfae4",
+      "id": "955095844275781693"
+    },
+    "posted_at": "2023-12-12T23:28:51.842Z"
+  },
+  {
+    "stars": 1,
+    "content": "Muito ruim,me comeu do nd sem eu mandar ",
+    "target_bot_id": "1064594303181131928",
+    "reply_message": {},
+    "author": {
+      "username": "miggas_",
+      "avatar": "8261fe06e7c4c6c23cf9fcdd24e481c2",
+      "id": "1136322824919847096"
+    },
+    "posted_at": "2023-12-12T23:30:02.831Z"
+  },
+  {
+    "stars": 5,
+    "content": "🤓",
+    "target_bot_id": "1064594303181131928",
+    "reply_message": {},
+    "author": {
+      "username": "unnreaal",
+      "avatar": "1f42e6dc5631724994ee7ea819371036",
+      "id": "963124227911860264"
+    },
+    "posted_at": "2023-12-12T23:36:57.984Z"
+  },
+  {
+    "stars": 5,
+    "content": "👍",
+    "target_bot_id": "1064594303181131928",
+    "reply_message": {},
+    "author": {
+      "username": "lost.kkkk",
+      "avatar": "a201202e691068f961f4da6076ba4820",
+      "id": "905961240990457876"
+    },
+    "posted_at": "2023-12-13T23:58:14.302Z"
+  }
+]
+```
+</ResponseExample>
