@@ -1,0 +1,116 @@
+---
+title: "List all user bots"
+api: "GET https://simo-botlist.vercel.app/api/bots"
+description: "This method is used to get all bots from the database that the request author owns."
+---
+
+<ParamField header="Authorization" type="string" placeholder="API KEY" required>
+  The api key of a bot that you own. You can find in [dashboard](https://bombadeagua.life/dashboard/) after selecting a bot.
+</ParamField>
+
+### Response
+
+<ResponseField name="Bot Structure" type="object">
+   Returns an array of your bots
+  <Expandable>
+    <ResponseField name="id" type="string">
+      Bot id
+    </ResponseField>
+    <ResponseField name="name" type="string">
+      Bot name
+    </ResponseField>
+    <ResponseField name="avatar" type="string">
+      Bot avatar
+    </ResponseField>
+    <ResponseField name="invite_url" type="string">
+      Bot invite url
+    </ResponseField>
+    <ResponseField name="website_url" type="string | null">
+      Bot website url
+    </ResponseField>
+    <ResponseField name="support_server" type="string | null">
+      Bot support server
+    </ResponseField>
+    <ResponseField optional name="source_code" type="string | null">
+      Bot source_code
+    </ResponseField>
+    <ResponseField name="short_description" type="string">
+      Bot short description
+    </ResponseField>
+    <ResponseField name="long_description" type="string">
+      Bot long description
+    </ResponseField>
+    <ResponseField name="prefixes" type="object">
+      Bot prefixes
+    </ResponseField>
+    <ResponseField name="owner_id" type="string">
+      Bot owner id
+    </ResponseField>
+    <ResponseField name="created_at" type="string">
+      Bot creation date
+    </ResponseField>
+    <ResponseField name="tags" type="object">
+      Bot tags
+    </ResponseField>
+    <ResponseField name="approved" type="boolean">
+      Bot approved status
+    </ResponseField>
+    <ResponseField name="votes" type="object">
+      <Expandable>
+        <ResponseField name="user_id" type="string">
+            The user id
+        </ResponseField>
+        <ResponseField name="last_vote" type="string">
+            User last vote
+        </ResponseField>
+        <ResponseField name="votes" type="number">
+            User votes
+        </ResponseField>
+      </Expandable>
+    </ResponseField>
+    <ResponseField name="team_id" type="string | null">
+      Bot approved status
+    </ResponseField>
+  </Expandable>    
+</ResponseField>
+
+<ResponseExample>
+```json Response
+[{
+  "_id": "1064594303181131928",
+  "name": "Simo Botlist",
+  "avatar": "b3c77d2682e89d6906d60efde927afdc",
+  "invite_url": "https://discord.com/api/oauth2/authorize?client_id=1064594303181131928&permissions=70368744177655&scope=bot%20applications.commands",
+  "website_url": "https://bombadeagua.life",
+  "support_server": "https://discord.gg/pSy5BMvFYH",
+  "source_code": "https://github.com/simoworkspace/Simo-botlist",
+  "short_description": "Simo botlist é um bot wrapper para o simo site, muito legal e bonito",
+  "long_description": "# Simo botlist \n\n### é um bot muito legal e bonito, ele tem um site legal também que se chaam simo gotbotldsik, aqui ó  [clica aqqu](https://bombadeagua.life)\n\nele também é um bot legal que mostra ocmandos\n\n/rank-votes\n\n![](https://cdn.discordapp.com/attachments/988397828063772762/1184274854799749210/image.png?ex=658b60e8&is=6578ebe8&hm=407dfd57717228f36f54a6a8387ac0583ece5028c1b340b71900b5130f336244&)\n\ne mais comando\ncom o user fino\n\n![](https://cdn.discordapp.com/attachments/988397828063772762/1184275011826098317/image.png?ex=658b610d&is=6578ec0d&hm=743eeea57e5afef9be12bfa0861b4a27e81cc57ea9d9d2952a6f6368d73f0b22&)\n\ndaora meu voit npé ? ?? ? ? ? ??? ? ",
+  "prefixes": [
+    "s!"
+  ],
+  "owner_id": "955095844275781693",
+  "created_at": "2023-01-16T17:17:41.084Z",
+  "tags": [
+    "botlist",
+    "utilidade",
+    "dashboard",
+    "bonito"
+  ],
+  "approved": true,
+  "votes": [
+    {
+      "user_id": "955095844275781693",
+      "last_vote": "2023-12-17T14:11:39.372Z",
+      "votes": 3
+    },
+    {
+      "user_id": "893615754040197201",
+      "last_vote": "2023-12-13T15:11:16.121Z",
+      "votes": 1
+    }
+  ],
+  "team_id": "7oic8awsap9"
+}]
+```
+</ResponseExample>
