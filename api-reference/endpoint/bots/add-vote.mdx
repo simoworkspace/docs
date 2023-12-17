@@ -1,0 +1,40 @@
+---
+title: "Add vote"
+api: "POST https://simo-botlist.vercel.app/api/bots/{botID}/votes"
+description: "This method is used to add a vote to the bot."
+---
+
+<ParamField header="Authorization" type="string" placeholder="API KEY" required>
+  The api key of a bot that you own. You can find in [dashboard](https://bombadeagua.life/dashboard/) after selecting a bot.
+</ParamField>
+<ParamField type="string" path="botID" required>
+  The bot id
+</ParamField>
+
+- The user ID will be taken from the JWT or api key used
+
+### Response
+
+<ResponseField name="Vote" type="object">
+    <Expandable>
+    <ResponseField name="user_id" type="string">
+        Your id
+    </ResponseField>
+    <ResponseField name="last_vote" type="string">
+        Your last vote
+    </ResponseField>
+     <ResponseField name="votes" type="number">
+        Your votes
+    </ResponseField>
+    </Expandable> 
+</ResponseField>
+
+<ResponseExample>
+```json Response
+{
+    "user_id": "955095844275781693",
+    "last_vote": "2023-12-17T14:11:39.372Z",
+    "votes": 1
+}
+```
+</ResponseExample>
