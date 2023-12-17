@@ -1,0 +1,75 @@
+---
+title: "Add Feedback"
+api: "POST https://simo-botlist.vercel.app/api/bots/{bot_id}/feedbacks"
+description: "This method is used to post your feedback to a bot."
+---
+
+<ParamField header="Authorization" type="string" placeholder="API KEY" required>
+  The api key of a bot that you own. You can find in [dashboard](https://bombadeagua.life/dashboard/) after selecting a bot.
+</ParamField>
+<ParamField path="bot_id" type="string" required>
+  The bot id
+</ParamField>
+<ParamField body="stars" type="number">
+    The new feedback stars
+</ParamField>
+<ParamField body="content" type="string">
+    The new feedback content
+</ParamField>
+
+- The user ID will be taken from the JWT or api key used
+
+### Response
+
+<ResponseField name="Feedback" type="object">
+    Your created feedback
+    <Expandable>
+        <ResponseField name="stars" type="number">
+            The feedback stars
+        </ResponseField>
+        <ResponseField name="content" type="string">
+            The feedback content
+        </ResponseField>
+        <ResponseField name="target_bot_id" type="string">
+            The feedback target bot id
+        </ResponseField>
+        <ResponseField name="edited" type="boolean">
+            Indicates whether the feedback has been edited
+        </ResponseField>
+        <ResponseField name="author" type="object">
+            Information about the author of the feedback
+            <Expandable>
+                <ResponseField name="username" type="string">
+                    The username of the author
+                </ResponseField>
+                <ResponseField name="avatar" type="string">
+                    The avatar of the author
+                </ResponseField>
+                <ResponseField name="id" type="string">
+                    The unique identifier of the author
+                </ResponseField>
+            </Expandable>
+        </ResponseField>
+        <ResponseField name="posted_at" type="string">
+            The timestamp when the feedback was originally posted
+        </ResponseField>
+    </Expandable>
+</ResponseField>
+
+<ResponseExample>
+```json Response
+{
+    "stars": 5,
+    "content": "bot legal, sem eu, eleé eu",
+    "target_bot_id": "1064594303181131928",
+    "edited": true,
+    "reply_message": {},
+    "author": {
+      "username": "spyei",
+      "avatar": "fe5545ff422e61b1a37326ed5a9bfae4",
+      "id": "955095844275781693"
+    },
+    "posted_at": "2023-12-12T23:28:51.842Z"
+}
+```
+</ResponseExample>
