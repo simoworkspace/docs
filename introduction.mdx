@@ -1,71 +1,46 @@
 ---
 title: Introduction
-description: 'Welcome to the home of your new documentation'
+description: "Simo-API is a working tool for developers related to the Simo project. Allows you to add, edit, delete, and get information about something, like a bot."
 ---
 
-<img
-  className="block dark:hidden"
-  src="/images/hero-light.svg"
-  alt="Hero Light"
-/>
-<img
-  className="hidden dark:block"
-  src="/images/hero-dark.svg"
-  alt="Hero Dark"
-/>
+## Libraries
 
-## Setting up
+You can interact with the API in different ways instead of using the raw API. Using API wrappers makes it easier to interact with the actual API.
 
-The first step to world-class documentation is setting up your editing environnments.
+### `@simo.js/rest`
 
-<CardGroup cols={2}>
-  <Card
-    title="Edit Your Docs"
-    icon="pen-to-square"
-    href="https://mintlify.com/docs/quickstart"
-  >
-    Get your docs set up locally for easy development
-  </Card>
-  <Card
-    title="Preview Changes"
-    icon="image"
-    href="https://mintlify.com/docs/development"
-  >
-    Preview your changes before you push to make sure they're perfect
-  </Card>
-</CardGroup>
+With `@simo.js/rest`, you can create and interact with the Simo API in a better way.
 
-## Make it yours
+Getting the current user:
 
-Update your docs to your brand and add valuable content for the best user conversion.
+```js
+const { REST, Routes } = require("@simo.js/rest");
 
-<CardGroup cols={2}>
-  <Card
-    title="Customize Style"
-    icon="palette"
-    href="https://mintlify.com/docs/settings/global"
-  >
-    Customize your docs to your company's colors and brands
-  </Card>
-  <Card
-    title="Reference APIs"
-    icon="code"
-    href="https://mintlify.com/docs/api-playground/openapi"
-  >
-    Automatically generate endpoints from an OpenAPI spec
-  </Card>
-  <Card
-    title="Add Components"
-    icon="screwdriver-wrench"
-    href="https://mintlify.com/docs/components/accordion"
-  >
-    Build interactive features and designs to guide your users
-  </Card>
-  <Card
-    title="Get Inspiration"
-    icon="stars"
-    href="https://mintlify.com/showcase"
-  >
-    Check out our showcase of our favorite documentation
-  </Card>
-</CardGroup>
+const rest = new REST({ auth: "API-AUTH" });
+
+const userData = await rest.get(Routes.getUser("@me"));
+
+console.log("Username:", userData.username);
+```
+
+### `@simo.js/simo.js`
+
+A powerful library that allows you to interact with any route and method of the Simo API.
+
+Creating a bot:
+
+```js
+const { API } = require("@simo.js/simo.js");
+
+const client = new API({
+    auth: "API-AUTH",
+});
+
+await client.bots.create({
+    invite_url: "bot-invite",
+    short_description: "Some short description goes here",
+    long_description: "Some looooong description goes here...",
+    prefixes: ["s!", "s?"],
+    tags: ["economy"],
+});
+```
