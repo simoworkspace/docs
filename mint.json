@@ -70,10 +70,9 @@
           "group": "Feedbacks",
           "icon": "comment",
           "pages": [
-            "api-reference/endpoint/feddbacks/delete",
-            "api-reference/endpoint/feddbacks/patch",
-            "api-reference/endpoint/feddbacks/delete",
-            "api-reference/endpoint/feedbacks/add"
+            "api-reference/endpoint/feedbacks/add",
+            "api-reference/endpoint/feedbacks/patch",
+            "api-reference/endpoint/feedbacks/delete"
           ]
         },
         {
