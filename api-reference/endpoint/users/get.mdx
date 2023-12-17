@@ -1,0 +1,75 @@
+---
+title: "Get user"
+api: "GET https://simo-botlist.vercel.app/api/users/{userID}"
+description: "This method is used to get all bots from the database that the request author owns."
+---
+
+<ParamField type="string" path="userID" required>
+  The user iD
+</ParamField>
+
+- Tip: this route `/api/users/@me` takes data from the api key or JWT
+
+### Response
+
+<ResponseField name="User" type="object">
+    <Expandable>
+        <ResponseField name="_id" type="string">
+            The user id
+        </ResponseField>
+        <ResponseField name="username" type="string">
+            The user username
+        </ResponseField>
+        <ResponseField name="avatar" type="string">
+            The user avatar
+        </ResponseField>
+        <ResponseField name="notifications" type="object">
+            The user notifications
+            <Expandable>
+                <ResponseField name="content" type="string">
+                    The content of the notification
+                </ResponseField>
+                <ResponseField name="sent_at" type="string">
+                    An ISO string representing when the notification was created
+                </ResponseField>
+                <ResponseField name="type" type="number">
+                    The type of the notification
+                </ResponseField>
+                <ResponseField name="url" type="string" optional="true">
+                    The hyperlink of the notification (Available only with Comment type)
+                </ResponseField>
+            </Expandable>
+        </ResponseField>
+        <ResponseField name="bio" type="string">
+            The user biography
+        </ResponseField>
+        <ResponseField name="notifications_viewed" type="boolean">
+            Indicates whether the user has viewed notifications
+        </ResponseField>
+    </Expandable>
+</ResponseField>
+
+<ResponseExample>
+```json Response
+{
+    "_id": "963124227911860264",
+    "username": "meunreal",
+    "avatar": "1f42e6dc5631724994ee7ea819371036",
+    "notifications": {
+        "1": {
+            "content": "**meunreal** Replicou seu comentário no bot **Compiler**\nvai se fuder",
+            "type": 3,
+            "url": "https://cdn.discordapp.com/avatars/963124227911860264/1f42e6dc5631724994ee7ea819371036.png",
+            "sent_at": "2023-11-12T14:45:54.814Z"
+        },
+        "2": {
+            "content": "😐",
+            "sent_at": "2023-11-23T20:01:10.564Z",
+            "type": 2,
+        }
+    },
+    "bio": "I updated my biography on 13/11/2024",
+    "notifications_viewed": true
+}
+```
+</ResponseExample>
