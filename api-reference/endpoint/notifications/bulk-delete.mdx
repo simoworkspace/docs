@@ -1,0 +1,31 @@
+---
+title: "Bulk delete notification"
+api: "DELETE https://simo-botlist.vercel.app/api/users/notifications/bulk-delete"
+description: "Delete all notifications from the user that matches the JWT or api-key."
+---
+
+<ParamField header="Authorization" type="string" placeholder="API KEY" required>
+  The JWT of your account. You can get this in website cookies
+</ParamField>
+
+### Response
+
+<ResponseField name="Notification" type="object">
+   <Expandable>
+        <ResponseField name="count" type="number">
+            The total number of deleted notifications
+        </ResponseField>
+        <ResponseField name="ids" type="array">
+            An array containing the IDs of the deleted notifications
+        </ResponseField>
+   </Expandable>
+</ResponseField>
+
+<ResponseExample>
+```json Response
+{
+  "count": 4,
+  "ids": ["1", "2", "3", "4"]
+}
+```
+</ResponseExample>
