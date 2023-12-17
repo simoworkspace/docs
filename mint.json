@@ -89,7 +89,7 @@
           "pages": [
             "api-reference/endpoint/notifications/get",
             "api-reference/endpoint/notifications/delete",
-            "api-reference/endpoint/bulk-delete"
+            "api-reference/endpoint/notifications/bulk-delete"
           ]
         },
         {
