@@ -63,7 +63,6 @@
             "api-reference/endpoint/bots/delete",
             "api-reference/endpoint/bots/edit",
             "api-reference/endpoint/bots/create",
-            "api-reference/endpoint/bots/delete",
             "api-reference/endpoint/bots/add-vote"
           ]
         },
