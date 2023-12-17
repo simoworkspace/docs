@@ -37,7 +37,9 @@
   "navigation": [
     {
       "group": "Get Started",
-      "pages": ["introduction"]
+      "pages": [
+        "introduction"
+      ]
     },
     {
       "group": "API Documentation",
@@ -46,9 +48,84 @@
       ]
     },
     {
-      "group": "No auth required",
+      "group": "Endpoints",
       "pages": [
-        "api-reference/endpoint/status"
+        {
+          "group": "Bots",
+          "icon": "robot",
+          "pages": [
+            "api-reference/endpoint/bots/bot",
+            "api-reference/endpoint/bots/query",
+            "api-reference/endpoint/bots/user",
+            "api-reference/endpoint/bots/votes",
+            "api-reference/endpoint/bots/feedbacks",
+            "api-reference/endpoint/bots/api-key",
+            "api-reference/endpoint/bots/delete",
+            "api-reference/endpoint/bots/edit",
+            "api-reference/endpoint/bots/create",
+            "api-reference/endpoint/bots/delete",
+            "api-reference/endpoint/bots/add-vote"
+          ]
+        },
+        {
+          "group": "Feedbacks",
+          "icon": "comment",
+          "pages": [
+            "api-reference/endpoint/feddbacks/delete",
+            "api-reference/endpoint/feddbacks/patch",
+            "api-reference/endpoint/feddbacks/delete",
+            "api-reference/endpoint/feedbacks/add"
+          ]
+        },
+        {
+          "group": "Users",
+          "icon": "user",
+          "pages": [
+            "api-reference/endpoint/users/get",
+            "api-reference/endpoint/users/@me",
+            "api-reference/endpoint/users/patch"
+          ]
+        },
+        {
+          "group": "Notifications",
+          "icon": "bell",
+          "pages": [
+            "api-reference/endpoint/notifications/get",
+            "api-reference/endpoint/notifications/delete",
+            "api-reference/endpoint/bulk-delete"
+          ]
+        },
+        {
+          "group": "Status",
+          "icon": "signal",
+          "pages": [
+            "api-reference/endpoint/status"
+          ]
+        },
+        {
+          "group": "Teams",
+          "icon": "user-group",
+          "pages": [
+            "api-reference/teams/@all",
+            "api-reference/teams/get",
+            "api-reference/teams/team",
+            "api-reference/teams/create",
+            "api-reference/teams/bots",
+            "api-reference/teams/patch",
+            "api-reference/teams/invite-code",
+            "api-reference/teams/join",
+            "api-reference/teams/delete",
+            "api-reference/teams/remove-bot",
+            "api-reference/teams/add-bot",
+            "api-reference/teams/audit-log",
+            "api-reference/teams/members/get",
+            "api-reference/teams/members/patch",
+            "api-reference/teams/members/@me",
+            "api-reference/teams/members/team-owner",
+            "api-reference/teams/members/kick",
+            "api-reference/teams/members/kick-me"
+          ]
+        }
       ]
     }
   ],
