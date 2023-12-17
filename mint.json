@@ -80,7 +80,6 @@
           "icon": "user",
           "pages": [
             "api-reference/endpoint/users/get",
-            "api-reference/endpoint/users/@me",
             "api-reference/endpoint/users/patch"
           ]
         },
