@@ -1,0 +1,23 @@
+---
+title: "Delete team"
+api: "DELETE https://simo-botlist.vercel.app/api/teams/{teamID}"
+description: "Delete a team that yours own."
+---
+
+<ParamField header="Authorization" type="string" placeholder="API KEY" required>
+  The api key of a bot that you own. You can find in [dashboard](https://bombadeagua.life/dashboard/) after selecting a bot.
+</ParamField>
+<ParamField path="teamID" type="string" required>
+    The team ID
+</ParamField>
+
+### Response
+
+<ResponseField name="No content" type="204">
+</ResponseField>
+
+<ResponseExample>
+```json Response
+
+```
+</ResponseExample>
