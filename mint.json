@@ -120,7 +120,7 @@
             "api-reference/endpoint/teams/members/@me",
             "api-reference/endpoint/teams/members/team-owner",
             "api-reference/endpoint/teams/members/kick",
-            "api-reference/endpoint/teams/members/kick-me"
+            "api-reference/endpoint/teams/members/leave"
           ]
         }
       ]
