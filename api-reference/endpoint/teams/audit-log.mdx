@@ -1,0 +1,141 @@
+---
+title: "Get team audit-logs"
+api: "GET https://simo-botlist.vercel.app/api/teams/{teamID}/audit-logs"
+description: "Search all audit records for a team."
+---
+
+<ParamField header="Authorization" type="string" placeholder="API KEY" required>
+  The api key of a bot that you own. You can find in [dashboard](https://bombadeagua.life/dashboard/) after selecting a bot.
+</ParamField>
+<ParamField type="string" path="teamID" required>
+  The team id
+</ParamField>
+
+### Response
+
+<ResponseField name="TeamActions" type="object">
+    Information about team actions
+        <ResponseField name="team_id" type="string">
+            The ID of the team
+        </ResponseField>
+        <ResponseField name="entries" type="array">
+            Information about individual team actions
+            <Expandable>
+                <ResponseField name="executor_id" type="string">
+                    The ID of the executor
+                </ResponseField>
+                <ResponseField name="action_type" type="number">
+                    The type of action
+                </ResponseField>
+                <ResponseField name="target_id" type="string">
+                    The ID of the target
+                </ResponseField>
+                <ResponseField name="changes" type="array">
+                    Information about changes made
+                    <Expandable>
+                        <ResponseField name="changed_key" type="string">
+                            The key that was changed
+                        </ResponseField>
+                        <ResponseField name="old_value" type="number">
+                            The old value of the key
+                        </ResponseField>
+                        <ResponseField name="new_value" type="number">
+                            The new value of the key
+                        </ResponseField>
+                    </Expandable>
+                </ResponseField>
+                <ResponseField name="id" type="string">
+                    The unique identifier of the action
+                </ResponseField>
+                <ResponseField name="created_at" type="string">
+                    The timestamp when the action was created
+                </ResponseField>
+                <ResponseField name="executor" type="object">
+                    Information about the executor
+                    <Expandable>
+                        <ResponseField name="_id" type="string">
+                            The ID of the executor
+                        </ResponseField>
+                        <ResponseField name="username" type="string">
+                            The username of the executor
+                        </ResponseField>
+                        <ResponseField name="avatar" type="string">
+                            The avatar of the executor
+                        </ResponseField>
+                    </Expandable>
+                </ResponseField>
+                <ResponseField name="target" type="object">
+                    Information about the target
+                    <Expandable>
+                        <ResponseField name="_id" type="string">
+                            The ID of the target
+                        </ResponseField>
+                        <ResponseField name="username" type="string">
+                            The username of the target
+                        </ResponseField>
+                        <ResponseField name="avatar" type="string">
+                            The avatar of the target
+                        </ResponseField>
+                    </Expandable>
+                </ResponseField>
+            </Expandable>
+        </ResponseField>
+</ResponseField>
+
+<ResponseExample>
+```json Response
+{
+  "team_id": "7oic8awsap9",
+  "entries": [
+    {
+      "executor_id": "963124227911860264",
+      "action_type": 2,
+      "target_id": "1057354767111831623",
+      "changes": [
+        {
+          "changed_key": "permission",
+          "old_value": 1,
+          "new_value": 0
+        }
+      ],
+      "id": "ewasd4",
+      "created_at": "2023-12-15T17:00:22.302Z",
+      "executor": {
+        "_id": "963124227911860264",
+        "username": "unnreaal",
+        "avatar": "1f42e6dc5631724994ee7ea819371036"
+      },
+      "target": {
+        "_id": "1057354767111831623",
+        "username": "lucwsh",
+        "avatar": "a_86a507e0654d0f8647b0b2a47345af11"
+      }
+    },
+    {
+      "executor_id": "955095844275781693",
+      "action_type": 2,
+      "target_id": "498013966740619264",
+      "changes": [
+        {
+          "changed_key": "permission",
+          "old_value": 0,
+          "new_value": 1
+        }
+      ],
+      "id": "l6157y",
+      "created_at": "2023-12-15T17:00:33.697Z",
+      "executor": {
+        "_id": "955095844275781693",
+        "avatar": "fe5545ff422e61b1a37326ed5a9bfae4",
+        "username": "spyei"
+      },
+      "target": {
+        "_id": "498013966740619264",
+        "username": "josejooj",
+        "avatar": "8d924575431f64961023e101998d07bb"
+      }
+    }
+  ]
+}
+```
+</ResponseExample>
