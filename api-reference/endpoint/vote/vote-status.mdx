@@ -1,0 +1,37 @@
+---
+title: "Vote status"
+api: "GET https://simo-botlist.vercel.app/api/vote-status/{ID}"
+description: "Search for a user's or bot's vote status."
+---
+
+<ParamField header="Authorization" type="string" placeholder="API KEY" required>
+  The api key of a bot that you own. You can find in [dashboard](https://bombadeagua.life/dashboard/) after selecting a bot.
+</ParamField>
+<ParamField type="string" path="ID" required>
+  The user ID or bot ID.
+</ParamField>
+
+- The bot ID is based on whether you are using JWT or api-key. If using JWT, the bot ID will be the `userId`, if api-key, the bot ID will be the `_id` of the bot that the api-key belongs to.
+### Response
+
+<ResponseField name="VoteStatus" type="object">
+    Information about the vote status
+    <Expandable>
+        <ResponseField name="can_vote" type="boolean">
+            Indicates whether the user can vote
+        </ResponseField>
+        <ResponseField name="rest_time" type="number">
+            The remaining time (in seconds) until the user can vote again
+        </ResponseField>
+    </Expandable>
+</ResponseField>
+
+
+<ResponseExample>
+```json Response
+{
+    "can_vote": false,
+    "rest_time": 43196279
+}
+```
+</ResponseExample>
