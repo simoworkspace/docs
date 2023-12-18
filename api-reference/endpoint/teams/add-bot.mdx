@@ -1,0 +1,75 @@
+---
+title: "Add bot"
+api: "POST https://simo-botlist.vercel.app/api/teams/{teamID}/bots/{botID}"
+description: "add a bot to a team"
+---
+
+<ParamField header="Authorization" type="string" placeholder="API KEY" required>
+  The api key of a bot that you own. You can find in [dashboard](https://bombadeagua.life/dashboard/) after selecting a bot.
+</ParamField>
+<ParamField path="teamID" type="string" required>
+    The team ID
+</ParamField>
+
+### Response
+
+<ResponseField name="Team" type="object">
+    The old information about the team
+    <Expandable>
+        <ResponseField name="bots_id" type="array">
+            The ID(s) of bots in the team
+        </ResponseField>
+        <ResponseField name="description" type="string">
+            The description of the team
+        </ResponseField>
+        <ResponseField name="avatar_url" type="string">
+            The URL of the team's avatar
+        </ResponseField>
+        <ResponseField name="name" type="string">
+            The name of the team
+        </ResponseField>
+        <ResponseField name="invite_code" type="string">
+            The invite code for the team
+        </ResponseField>
+        <ResponseField name="id" type="string">
+            The unique identifier of the team
+        </ResponseField>
+        <ResponseField name="members" type="array">
+            Information about team members
+            <Expandable>
+                <ResponseField name="joined_at" type="string">
+                    The timestamp when the member joined the team
+                </ResponseField>
+                <ResponseField name="id" type="string">
+                    The unique identifier of the member
+                </ResponseField>
+                <ResponseField name="permission" type="number">
+                    The permission level of the member
+                </ResponseField>
+            </Expandable>
+        </ResponseField>
+        <ResponseField name="created_at" type="string">
+            The timestamp when the team was created
+        </ResponseField>
+    </Expandable>
+</ResponseField>
+<ResponseExample>
+```json Response
+{
+    "bots_id": [],
+    "description": "meu time é legal e bonito",
+    "avatar_url": "https://media2.giphy.com/media/MDJ9IbxxvDUQM/200w.webp?cid=ecf05e4746f6w9wyopiou5j5gwan3b8ei2mgarpy1ynojy6a&ep=v1_gifs_search&rid=200w.webp&ct=g",
+    "name": "Simo Team 🦥",
+    "invite_code": "dbsjk2q",
+    "id": "7oic8awsap9",
+    "members": [
+      {
+        "joined_at": "2023-12-17T17:09:10.523Z",
+        "id": "955095844275781693",
+        "permission": 2
+      }
+    ],
+    "created_at": "2023-12-16T00:23:44.263Z"
+}
+```
+</ResponseExample>
