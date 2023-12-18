@@ -1,0 +1,40 @@
+---
+title: "Get me"
+api: "GET https://simo-botlist.vercel.app/api/teams/{teamID}/members/@me"
+description: "Search for the member that corresponds to the Json Web Token or api-key."
+---
+
+<ParamField header="Authorization" type="string" placeholder="API KEY" required>
+  The api key of a bot that you own. You can find in [dashboard](https://bombadeagua.life/dashboard/) after selecting a bot.
+</ParamField>
+<ParamField type="string" path="teamID" required>
+  The team id
+</ParamField>
+
+### Response
+
+<ResponseField name="TeamMember" type="object">
+    You in team
+    <Expandable>
+        <ResponseField name="id" type="string">
+            The ID of the member
+        </ResponseField>
+        <ResponseField name="permission" type="number">
+            The permission level of the member in the team
+        </ResponseField>
+        <ResponseField name="joined_at" type="string">
+            An ISO string representing when the member joined the team
+        </ResponseField>
+    </Expandable>
+</ResponseField>
+
+<ResponseExample>
+```json Response
+
+{
+    "joined_at": "2023-12-17T17:09:10.523Z",
+    "id": "955095844275781693",
+    "permission": 2
+}
+```
+</ResponseExample>
