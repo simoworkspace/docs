@@ -1,0 +1,84 @@
+---
+title: "Get team bots"
+api: "GET https://simo-botlist.vercel.app/api/teams/{teamID}/bots"
+description: "Search for all bots on a team."
+---
+
+<ParamField header="Authorization" type="string" placeholder="API KEY" required>
+  The api key of a bot that you own. You can find in [dashboard](https://bombadeagua.life/dashboard/) after selecting a bot.
+</ParamField>
+<ParamField path="teamID" type="string" required>
+    The team ID
+</ParamField>
+
+### Response
+
+<ResponseField name="Bot" type="array">
+    Information about a bot
+    <Expandable>
+        <ResponseField name="_id" type="string">
+            The unique identifier of the bot
+        </ResponseField>
+        <ResponseField name="name" type="string">
+            The name of the bot
+        </ResponseField>
+        <ResponseField name="avatar" type="string">
+            The avatar of the bot
+        </ResponseField>
+        <ResponseField name="short_description" type="string">
+            A short description of the bot
+        </ResponseField>
+        <ResponseField name="verified" type="boolean">
+            Indicates whether the bot is verified
+        </ResponseField>
+        <ResponseField name="tags" type="array" arrayType="string">
+            Tags associated with the bot
+        </ResponseField>
+        <ResponseField name="votes" type="array">
+            Information about votes received by the bot
+            <Expandable>
+                <ResponseField name="user_id" type="string">
+                    The user ID of the voter
+                </ResponseField>
+                <ResponseField name="last_vote" type="string">
+                    The timestamp of the last vote
+                </ResponseField>
+                <ResponseField name="votes" type="number">
+                    The number of votes received
+                </ResponseField>
+            </Expandable>
+        </ResponseField>
+    </Expandable>
+</ResponseField>
+
+<ResponseExample>
+```json Response
+[
+  {
+    "_id": "1064594303181131928",
+    "name": "Simo Botlist",
+    "avatar": "b3c77d2682e89d6906d60efde927afdc",
+    "short_description": "Simo botlist é um bot wrapper para o simo site, muito legal e bonito",
+    "verified": false,
+    "tags": [
+      "botlist",
+      "utilidade",
+      "dashboard",
+      "bonito"
+    ],
+    "votes": [
+      {
+        "user_id": "955095844275781693",
+        "last_vote": "2023-12-17T14:11:39.372Z",
+        "votes": 3
+      },
+      {
+        "user_id": "893615754040197201",
+        "last_vote": "2023-12-13T15:11:16.121Z",
+        "votes": 1
+      }
+    ]
+  }
+]
+```
+</ResponseExample>
