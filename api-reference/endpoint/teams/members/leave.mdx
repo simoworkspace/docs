@@ -1,0 +1,23 @@
+---
+title: "Leave team"
+api: "DELETE https://simo-botlist.vercel.app/api/teams/{teamID}/members/@me"
+description: "Kick yourself out of a team."
+---
+
+<ParamField header="Authorization" type="string" placeholder="API KEY" required>
+  The api key of a bot that you own. You can find in [dashboard](https://bombadeagua.life/dashboard/) after selecting a bot.
+</ParamField>
+<ParamField type="string" path="teamID" required>
+  The team id
+</ParamField>
+
+### Response
+
+<ResponseField name="No content" type="204">
+</ResponseField>
+
+<ResponseExample>
+```json Response
+No content
+```
+</ResponseExample>
