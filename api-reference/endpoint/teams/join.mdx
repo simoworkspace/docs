@@ -1,0 +1,26 @@
+---
+title: "Update invite code"
+api: "PATCH https://simo-botlist.vercel.app/api/teams/{teamID}/{inviteCode}"
+description: "Update a team's invite code."
+---
+
+<ParamField header="Authorization" type="string" placeholder="API KEY" required>
+  The api key of a bot that you own. You can find in [dashboard](https://bombadeagua.life/dashboard/) after selecting a bot.
+</ParamField>
+<ParamField path="teamID" type="string" required>
+    The team ID
+</ParamField>
+<ParamField path="inviteCode" type="string" required>
+    The team invite code
+</ParamField>
+
+### Response
+
+<ResponseField name="No content" type="204">
+</ResponseField>
+
+<ResponseExample>
+```json Response
+
+```
+</ResponseExample>
