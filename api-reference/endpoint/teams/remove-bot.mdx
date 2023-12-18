@@ -1,0 +1,27 @@
+---
+title: "Remove bot"
+api: "DELETE https://simo-botlist.vercel.app/api/teams/{teamID}/bots/{botID}"
+description: Search for all bots on a team."
+---
+
+<ParamField header="Authorization" type="string" placeholder="API KEY" required>
+  The api key of a bot that you own. You can find in [dashboard](https://bombadeagua.life/dashboard/) after selecting a bot.
+</ParamField>
+<ParamField path="teamID" type="string" required>
+    The team ID
+</ParamField>
+<ParamField path="botID" type="string" required>
+    The bot ID
+</ParamField>
+
+### Response
+
+<ResponseField name="No content" type="204">
+</ResponseField>
+
+<ResponseExample>
+```json Response
+No content
+
+```
+</ResponseExample>
