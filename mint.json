@@ -67,6 +67,11 @@
           ]
         },
         {
+          "group": "Vote Status",
+          "icon": "caret-up",
+          "pages": ["api-reference/endpoint/vote/vote-status"]
+        },
+        {
           "group": "Feedbacks",
           "icon": "comment",
           "pages": [
